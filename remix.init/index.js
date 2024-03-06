@@ -190,14 +190,9 @@ const main = async ({ packageManager, rootDirectory }) => {
       path.join(rootDirectory, "remix.init", "gitignore"),
       path.join(rootDirectory, ".gitignore"),
     ),
-    fs.rm(path.join(rootDirectory, ".github", "ISSUE_TEMPLATE"), {
-      recursive: true,
-    }),
     fs.rm(path.join(rootDirectory, ".github", "workflows", "format-repo.yml")),
     fs.rm(path.join(rootDirectory, ".github", "workflows", "lint-repo.yml")),
-    fs.rm(path.join(rootDirectory, ".github", "workflows", "no-response.yml")),
     fs.rm(path.join(rootDirectory, ".github", "dependabot.yml")),
-    fs.rm(path.join(rootDirectory, ".github", "PULL_REQUEST_TEMPLATE.md")),
     fs.rm(path.join(rootDirectory, "LICENSE.md")),
   ]);
 
@@ -215,9 +210,6 @@ Setup is almost complete. Follow these steps to finish initialization:
 
 - Run setup (this updates the database):
   ${pm.run("setup")}
-
-- Run the first build (this generates the server you will run):
-  ${pm.run("build")}
 
 - You're now ready to rock and roll 🤘
   ${pm.run("dev")}
