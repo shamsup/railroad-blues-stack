@@ -2,11 +2,12 @@
 
 ![The Railroad Blues Stack](https://repository-images.githubusercontent.com/461012689/37d5bd8b-fa9c-4ab0-893c-f0a199d5012d)
 
-<!-- **Get started now by deploying to Railway!** This will create a new github repository for you and link it to Railway for automatic deployments.
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/YPRcXs?referralCode=S52NqU)
+**Get started now by deploying to Railway!** This will create a new github repository for you and link it to Railway for automatic deployments.
 
-_disclaimer: I get Railway credits if you use the link above_ -->
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/plonEj?referralCode=S52NqU)
+
+_disclaimer: I may get Railway credits if you use the link above_
 
 ## Differences from the original Blues Stack
 
