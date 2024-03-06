@@ -13,7 +13,7 @@ FROM base as deps
 WORKDIR /myapp
 
 ADD package.json .npmrc ./
-RUN npm install --include=dev
+RUN npm ci --include=dev && npm cache clean --force
 
 # Setup production node_modules
 FROM base as production-deps
@@ -40,6 +40,9 @@ RUN npm run build
 # Finally, build the production image with minimal footprint
 FROM base
 
+# ARG DATABASE_URL
+# ENV DATABASE_URL=${DATABASE_URL}
+
 WORKDIR /myapp
 
 COPY --from=production-deps /myapp/node_modules /myapp/node_modules
@@ -49,4 +52,5 @@ COPY --from=build /myapp/build /myapp/build
 COPY --from=build /myapp/public /myapp/public
 ADD . .
 
+RUN npx prisma migrate deploy
 CMD ["npm", "start"]

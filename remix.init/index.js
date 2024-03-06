@@ -3,7 +3,6 @@ const crypto = require("node:crypto");
 const fs = require("node:fs/promises");
 const path = require("node:path");
 
-const toml = require("@iarna/toml");
 const PackageJson = require("@npmcli/package-json");
 const semver = require("semver");
 
@@ -104,7 +103,6 @@ const main = async ({ packageManager, rootDirectory }) => {
   const pm = getPackageManagerCommand(packageManager);
 
   const README_PATH = path.join(rootDirectory, "README.md");
-  const FLY_TOML_PATH = path.join(rootDirectory, "fly.toml");
   const EXAMPLE_ENV_PATH = path.join(rootDirectory, ".env.example");
   const ENV_PATH = path.join(rootDirectory, ".env");
   const DOCKERFILE_PATH = path.join(rootDirectory, "Dockerfile");
@@ -119,7 +117,7 @@ const main = async ({ packageManager, rootDirectory }) => {
     "delete-user.ts",
   );
 
-  const REPLACER = "blues-stack-template";
+  const REPLACER = "railroad-blues-stack-template";
 
   const DIR_NAME = path.basename(rootDirectory);
   const SUFFIX = getRandomString(2);
@@ -129,7 +127,6 @@ const main = async ({ packageManager, rootDirectory }) => {
     .replace(/[^a-zA-Z0-9-_]/g, "-");
 
   const [
-    prodContent,
     readme,
     env,
     dockerfile,
@@ -138,7 +135,6 @@ const main = async ({ packageManager, rootDirectory }) => {
     deleteUserCommand,
     packageJson,
   ] = await Promise.all([
-    fs.readFile(FLY_TOML_PATH, "utf-8"),
     fs.readFile(README_PATH, "utf-8"),
     fs.readFile(EXAMPLE_ENV_PATH, "utf-8"),
     fs.readFile(DOCKERFILE_PATH, "utf-8"),
@@ -152,9 +148,6 @@ const main = async ({ packageManager, rootDirectory }) => {
     /^SESSION_SECRET=.*$/m,
     `SESSION_SECRET="${getRandomString(16)}"`,
   );
-
-  const prodToml = toml.parse(prodContent);
-  prodToml.app = prodToml.app.replace(REPLACER, APP_NAME);
 
   const initInstructions = `
 - First run this stack's \`remix.init\` script and commit the changes it makes to your project.
@@ -181,7 +174,6 @@ const main = async ({ packageManager, rootDirectory }) => {
   updatePackageJson({ APP_NAME, packageJson, packageManager: pm });
 
   await Promise.all([
-    fs.writeFile(FLY_TOML_PATH, toml.stringify(prodToml)),
     fs.writeFile(README_PATH, newReadme),
     fs.writeFile(ENV_PATH, newEnv),
     fs.writeFile(DOCKERFILE_PATH, newDockerfile),
