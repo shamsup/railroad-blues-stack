@@ -1,22 +1,28 @@
 # Remix Railroad Blues Stack (Blues Stack for Railway)
 
-![The Railroad Blues Stack](https://repository-images.githubusercontent.com/461012689/37d5bd8b-fa9c-4ab0-893c-f0a199d5012d)
+![The Railroad Blues Stack](https://repository-images.githubusercontent.com/768360461/7aaa3e77-1473-4f67-a0c2-e8f012f70ecf)
 
-**Get started now by deploying to Railway!** This will create a new GitHub repository for you and link it to Railway for automatic deployments.
+## Get Started
+
+**Get started now by deploying to Railway!**
+
+This will create a new GitHub repository for you and link it to Railway for automatic deployments.
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/plonEj?referralCode=shamsup)
 
-_disclaimer: I may get Railway credits if you use the railway links_
+_disclaimer: I may get Railway credits if you use the Railway links_
+
+If you don't want to start with Railway immediately, you can create a new remix app from this template:
+
+```sh
+npx create-remix@latest --template shamsup/railroad-blues-stack
+```
 
 ## Differences from the original Blues Stack
 
 This version of the Blues Stack deploys to Railway instead of Fly.
 
 Learn more about [Remix Stacks](https://remix.run/stacks).
-
-```sh
-npx create-remix@latest --template shamsup/railroad-blues-stack
-```
 
 ## What's in the stack
 
@@ -33,17 +39,6 @@ npx create-remix@latest --template shamsup/railroad-blues-stack
 - Static Types with [TypeScript](https://typescriptlang.org)
 
 Not a fan of bits of the stack? Fork it, change it, and use `npx create-remix --template your/repo`! Make it your own.
-
-## Get started
-
-<!-- **Deploy to Railway!** This will create a new github repository for you and link it to Railway for automatic deployments.
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/YPRcXs?referralCode=S52NqU)
-
-_disclaimer: I get Railway credits if you use the link above_ -->
-
-- Click the Railway button above 👆
-- add the `SESSION_SECRET` variable (<kbd>cmd/ctrl+k</kbd> in Railway and open the secret generator)
 
 ## Development
 

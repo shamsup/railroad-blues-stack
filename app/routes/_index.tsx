@@ -1,7 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
-import railwayDarkIcon from "~/assets/railway-dark.svg";
 
+import railwayDarkIcon from "~/assets/railway-dark.svg";
 import { useOptionalUser } from "~/utils";
 
 export const meta: MetaFunction = () => [{ title: "Remix Notes" }];
@@ -73,7 +73,7 @@ export default function Index() {
               {
                 src: railwayDarkIcon,
                 alt: "Railway",
-                href: "https://railway.app?referralCode=shamsup",
+                href: "https://railway.app",
               },
               {
                 src: "https://user-images.githubusercontent.com/1500684/158238105-e7279a0c-1640-40db-86b0-3d3a10aab824.svg",
