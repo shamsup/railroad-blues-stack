@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
+import railwayDarkIcon from "~/assets/railway-dark.svg";
 
 import { useOptionalUser } from "~/utils";
 
@@ -70,7 +71,7 @@ export default function Index() {
           <div className="mt-6 flex flex-wrap justify-center gap-8">
             {[
               {
-                src: "https://github.com/shamsup/remix-postgres-railway-template/assets/13878078/ac321ce7-40ab-462a-9f68-b0ab5020dc76",
+                src: railwayDarkIcon,
                 alt: "Railway",
                 href: "https://railway.app",
               },

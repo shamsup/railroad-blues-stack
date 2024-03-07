@@ -6,7 +6,7 @@ import { singleton } from "./singleton.server";
 const prisma = singleton("prisma", () => new PrismaClient({
   datasources: {
     db: {
-      url: process.env.DATABASE_PRIVATE_URL ?? process.env.DATABASE_URL,
+      url: process.env.DATABASE_PRIVATE_URL || process.env.DATABASE_URL,
     }
   }
 }));
